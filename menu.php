@@ -36,5 +36,10 @@
     public function getTaxIncludedPrice() {
       return floor($this->price * 1.10);
     }
+
+    // getTotalPriceメソッドを定義
+    public function getTotalPrice() {
+      return $this->getTaxIncludedPrice() * $this->orderCount;
+    }
   }
 ?>
