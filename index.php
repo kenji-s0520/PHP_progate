@@ -1,23 +1,5 @@
 <?php
-class Menu {
-  // $nameというプロパティを定義している
-  public $name;
-
-  public function __construct($name) {
-    $this -> name = $name;
-  }
-  public function hello() {
-    echo '私は'.$this->name.'です';
-  }
-}
-
-$juice = new Menu('JUICE');
-$coffee = new Menu('COFFEE');
-$curry = new Menu('CURRY');
-$pasta = new Menu('PASTA');
-// 配列の中に上記の4つのインスタンスを順に入れて、変数$menusに代入してください
-$menus = array($juice, $coffee, $curry, $pasta);
-
+  require_once('data.php');
 ?>
 
 <!DOCTYPE html>
@@ -31,12 +13,20 @@ $menus = array($juice, $coffee, $curry, $pasta);
 <body>
   <div class="menu-wrapper container">
     <h1 class="logo">Café Progate</h1>
-    <div class="menu-items">
-      <!-- 配列$menusの要素を変数$menuとするforeach文を書いてください -->
-      <?php foreach ($menus as $menu): ?>
-      <p><?php echo $menu->name ?></p>
-      <?php endforeach ?>
-    </div>
+    <form method="post" action="confirm.php">
+      <div class="menu-items">
+        <?php foreach ($menus as $menu): ?>
+          <div class="menu-item">
+            <img src="<?php echo $menu->getImage() ?>" class="menu-item-image">
+            <h3 class="menu-item-name"><?php echo $menu->getName() ?></h3>
+            <p class="price">¥<?php echo $menu->getTaxIncludedPrice() ?>（税込）</p>
+            <input type="text" value="0" name="<?php echo $menu->getName() ?>">
+            <span>個</span>
+          </div>
+        <?php endforeach ?>
+      </div>
+      <input type="submit" value="注文する">
+    </form>
   </div>
 </body>
 </html>
