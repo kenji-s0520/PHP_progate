@@ -1,5 +1,6 @@
 <?php
-  require_once('data.php');
+  require_once('data.php'); // data.phpを読み込む
+  require_once('menu.php'); // menu.phpを読み込む
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +14,8 @@
 <body>
   <div class="menu-wrapper container">
     <h1 class="logo">Café Progate</h1>
+    <!-- Menuクラスのクラスプロパティを見て$countを表示 -->
+    <h3>メニュー<?php echo Menu::$count ?>品</h3>
     <form method="post" action="confirm.php">
       <div class="menu-items">
         <?php foreach ($menus as $menu): ?>
