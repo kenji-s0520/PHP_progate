@@ -14,14 +14,19 @@
 <body>
   <div class="menu-wrapper container">
     <h1 class="logo">Café Progate</h1>
-    <!-- Menuクラスのクラスプロパティを見て$countを表示 -->
-    <h3>メニュー<?php echo Menu::$count ?>品</h3>
+    <!-- Menuクラスに対してgetCountメソッドを呼び出して、クラスプロパティ$countを表示する -->
+    <h3>メニュー<?php echo Menu::getCount() ?>品</h3>
     <form method="post" action="confirm.php">
       <div class="menu-items">
         <?php foreach ($menus as $menu): ?>
           <div class="menu-item">
             <img src="<?php echo $menu->getImage() ?>" class="menu-item-image">
             <h3 class="menu-item-name"><?php echo $menu->getName() ?></h3>
+            <!-- if文を用いて、$menuがDrinkクラスのインスタンスであるときだけgetTypeメソッドを呼び出す -->
+            <?php if ($menu instanceof Drink): ?>
+            <!-- $menuのゲッターを用いてtypeプロパティを表示 -->
+            <p class="menu-item-type"><?php echo $menu->getType() ?></p>
+            <?php endif ?>
             <p class="price">¥<?php echo $menu->getTaxIncludedPrice() ?>（税込）</p>
             <input type="text" value="0" name="<?php echo $menu->getName() ?>">
             <span>個</span>

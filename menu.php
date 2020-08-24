@@ -1,11 +1,14 @@
 <?php
   class Menu {
-    private $name;
-    private $price;
-    private $image;
+    protected $name;
+    protected $price;
+    protected $image;
     private $orderCount = 0;
-    // $countというpublicなクラスプロパティを定義する
-    public static $count = 4;
+    // クラスプロパティ$countのアクセス権をprivateに、初期値を数値の0にする
+    protected static $count = 0;
+    public static function getCount() {
+      return self::$count;
+    }
 
     public function __construct($name, $price, $image) {
       $this->name = $name;
@@ -13,6 +16,9 @@
       $this->price = $price;
 
       $this->image = $image;
+
+      // クラスプロパティcountの値に１を足していく
+      self::$count++;
     }
 
     public function hello() {
