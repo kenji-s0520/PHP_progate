@@ -29,7 +29,7 @@
             <!-- elseを用いてmenuのゲッターがFoodクラスのインスタンスであるときだけgetSpicinessを呼び出す -->
             <?php else: ?>
               <!-- <p>辛さ:<?php echo $menu->getSpiciness() ?></p> -->
-              <!-- for文を用いて、pricinessプロパティの数だけ繰り返し処理を行う -->
+              <!-- for文を用いて、spicinessプロパティの数だけ繰り返し処理を行う -->
               <?php for($i=0; $i<$menu->getSpiciness(); $i++): ?>
                 <img src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/php/chilli.png" class="icon-spiciness">
               <?php endfor ?>
