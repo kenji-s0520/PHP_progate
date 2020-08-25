@@ -25,7 +25,14 @@
             <!-- if文を用いて、$menuがDrinkクラスのインスタンスであるときだけgetTypeメソッドを呼び出す -->
             <?php if ($menu instanceof Drink): ?>
             <!-- $menuのゲッターを用いてtypeプロパティを表示 -->
-            <p class="menu-item-type"><?php echo $menu->getType() ?></p>
+              <p class="menu-item-type"><?php echo $menu->getType() ?></p>
+            <!-- elseを用いてmenuのゲッターがFoodクラスのインスタンスであるときだけgetSpicinessを呼び出す -->
+            <?php else: ?>
+              <!-- <p>辛さ:<?php echo $menu->getSpiciness() ?></p> -->
+              <!-- for文を用いて、pricinessプロパティの数だけ繰り返し処理を行う -->
+              <?php for($i=0; $i<$menu->getSpiciness(); $i++): ?>
+                <img src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/php/chilli.png" class="icon-spiciness">
+              <?php endfor ?>
             <?php endif ?>
             <p class="price">¥<?php echo $menu->getTaxIncludedPrice() ?>（税込）</p>
             <input type="text" value="0" name="<?php echo $menu->getName() ?>">
