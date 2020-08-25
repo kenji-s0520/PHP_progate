@@ -1,3 +1,4 @@
+/* 共通のCSS */
 * {
   box-sizing: border-box;
 }
@@ -91,6 +92,10 @@ img {
 
 .menu-item-image {
   border-radius: 5px;
+}
+
+.icon-spiciness {
+  width: 20px;
 }
 
 .menu-item span {
