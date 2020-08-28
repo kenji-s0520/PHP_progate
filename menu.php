@@ -49,5 +49,28 @@
     public function getTotalPrice() {
       return $this->getTaxIncludedPrice() * $this->orderCount;
     }
+
+    // getReviewsメソッドを定義する
+    public function getReviews($reviews) {
+      foreach ($reviews as $review) {
+        if ($review->getMenuName() == $this->name) {
+          $reviewsForMenu[] = $review;
+        }
+      }
+      return $reviewsForMenu;
+    }
+
+    //public static function getCount(){
+      //return self::$count;
+    //}
+
+    // findByNameというクラスメソッドを定義
+    public static function findByName($menus, $name){
+      foreach ($menus as $menu){
+        if ($menu->getName() == $name){
+          return $menu;
+        }
+      }
+    }
   }
 ?>
