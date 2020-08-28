@@ -21,7 +21,13 @@
         <?php foreach ($menus as $menu): ?>
           <div class="menu-item">
             <img src="<?php echo $menu->getImage() ?>" class="menu-item-image">
-            <h3 class="menu-item-name"><?php echo $menu->getName() ?></h3>
+            <h3 class="menu-item-name">
+            <!-- メニュー名にshow.phpのリンクを設定する 
+                  nameのクエリ情報を追加する-->
+              <a href="show.php?name=<?php echo $menu->getName() ?>">
+              <?php echo $menu->getName() ?>
+              </a>
+            </h3>
             <!-- if文を用いて、$menuがDrinkクラスのインスタンスであるときだけgetTypeメソッドを呼び出す -->
             <?php if ($menu instanceof Drink): ?>
             <!-- $menuのゲッターを用いてtypeプロパティを表示 -->
