@@ -47,10 +47,23 @@ $menuReviews = $menu->getReviews($reviews);
         </div>
         <!-- foreach文を書いてください -->
         <?php foreach ($menuReviews as $review): ?>
-          <h3><?php echo $review->getMenuName() ?></h3>
-            <p><?php echo $review->getBody() ?></p>
+        <!-- $reviewに対して、引数を$usersとしてgetUserメソッドを呼び出して、戻り値を変数$userに代入  practice8 -->
+          <?php $user = $review->getUser($users) ?>
+          <div class="review-list-item">
+            <div class="review-user">
+              <!-- if文を用いて$userのgenderプロパティによって別の画像を表示する  practice8 -->
+              <?php if($user->getGender() == "male"):?> 
+                <img src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/php/male.png" class='icon-user'>
+               <?php else: ?> 
+                <img src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/php/female.png" class='icon-user'>
+              <?php endif ?>
+              <!-- <p>タグの中に、$userのゲッターを用いてnameプロパティを表示  practice8 -->
+              <p><?php echo $user->getName() ?></p>
+            </div>
+          <!-- <h3><?php echo $review->getMenuName() ?></h3> -->
+            <p class="review-text"><?php echo $review->getBody() ?></p>  <!-- practice8 -->
+          </div>
         <?php endforeach ?>
-        
       </div>
     </div>
     <a href="index.php">← メニュー一覧へ</a>
