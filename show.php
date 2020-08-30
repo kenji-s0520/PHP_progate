@@ -58,6 +58,8 @@ $menuReviews = $menu->getReviews($reviews);
                 <img src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/php/female.png" class='icon-user'>
               <?php endif ?>
               <!-- <p>タグの中に、$userのゲッターを用いてnameプロパティを表示  practice8 -->
+              <!-- <p>タグの中に、$userのゲッターを用いてidプロパティを表示する  practice9 -->
+              <!-- p><?php echo $user->getId() ?></p> --> <!-- practice9  -->
               <p><?php echo $user->getName() ?></p>
             </div>
           <!-- <h3><?php echo $review->getMenuName() ?></h3> -->
