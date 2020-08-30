@@ -50,6 +50,12 @@
   // 変数$user2にUserクラスのインスタンスを代入する
   $user2 = new User('tanaka', 'female');
 
+  // 変数$user3にUserクラスのインスタンスを代入する  practice9
+  $user3 = new User('suzuki', 'female');
+
+  // 変数$user4にUserクラスのインスタンスを代入する  practice9
+  $user4 = new User('sato', 'male');
+
   // 変数$review1にReviewクラスのインスタンスを代入する
   //$review1 = new Review($juice->getName(), '果肉たっぷりのオレンジジュースです！');
 
@@ -60,16 +66,28 @@
   //$reviews = array($review1, $review2);
 
   // 以下にReviewインスタンス生成用のコードを作成  practice8
-  $users = array($user1, $user2);
+  $users = array($user1, $user2, $user3, $user4);  // practice9 $user3と$user4を追加
 
-  $review1 = new Review($juice->getName(), $user1->getName(), '果肉たっぷりのオレンジジュースです！');
-  $review2 = new Review($curry->getName(), $user1->getName(), '具がゴロゴロしていてとてもおいしいです');
-  $review3 = new Review($coffee->getName(), $user1->getName(), '香りがいいです');
-  $review4 = new Review($pasta->getName(), $user1->getName(), 'ソースが絶品です。また食べたい。');
-  $review5 = new Review($juice->getName(), $user2->getName(), '普通のジュース');
-  $review6 = new Review($curry->getName(), $user2->getName(), '値段の割においしいカレーだと思いました');
-  $review7 = new Review($coffee->getName(), $user2->getName(), '苦味がちょうどよくて、おすすめです');
-  $review8 = new Review($pasta->getName(), $user2->getName(), '具材にこだわりを感じました。');
+  // 以下の$review1 ~ $review8を削除する  practice9
+
+  // $review1 = new Review($juice->getName(), $user1->getName(), '果肉たっぷりのオレンジジュースです！');
+  // $review2 = new Review($curry->getName(), $user1->getName(), '具がゴロゴロしていてとてもおいしいです');
+  // $review3 = new Review($coffee->getName(), $user1->getName(), '香りがいいです');
+  // $review4 = new Review($pasta->getName(), $user1->getName(), 'ソースが絶品です。また食べたい。');
+  // $review5 = new Review($juice->getName(), $user2->getName(), '普通のジュース');
+  // $review6 = new Review($curry->getName(), $user2->getName(), '値段の割においしいカレーだと思いました');
+  // $review7 = new Review($coffee->getName(), $user2->getName(), '苦味がちょうどよくて、おすすめです');
+  // $review8 = new Review($pasta->getName(), $user2->getName(), '具材にこだわりを感じました。');
+
+  // userIdプロパティをセットする  practice9
+  $review1 = new Review($juice->getName(), $user1->getId(), '果肉たっぷりのオレンジジュースです！');
+  $review2 = new Review($curry->getName(), $user1->getId(), '具がゴロゴロしていてとてもおいしいです');
+  $review3 = new Review($coffee->getName(), $user2->getId(), '香りがいいです');
+  $review4 = new Review($pasta->getName(), $user2->getId(), 'ソースが絶品です。また食べたい。');
+  $review5 = new Review($juice->getName(), $user3->getId(), '普通のジュース');
+  $review6 = new Review($curry->getName(), $user3->getId(), '値段の割においしいカレーだと思いました');
+  $review7 = new Review($coffee->getName(), $user4->getId(), '苦味がちょうどよくて、おすすめです');
+  $review8 = new Review($pasta->getName(), $user4->getId(), '具材にこだわりを感じました。');
   
   $reviews = array($review1, $review2, $review3, $review4, $review5, $review6, $review7, $review8);
 
